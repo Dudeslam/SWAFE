@@ -1,0 +1,28 @@
+.title
+{
+    padding-top: 10px;
+}
+
+.CreditList
+{
+    padding-top: 10px;
+    // border: 2px;
+    list-style-type: none;
+    position: absolute;
+
+}
+
+.CreditList:last-child
+{
+    border-bottom: none;
+}
+
+.CreditList:first-child
+{
+    border-bottom: solid grey;
+}
+
+.CreditList:nth-child(even)
+{
+    border-bottom: solid grey;
+}
