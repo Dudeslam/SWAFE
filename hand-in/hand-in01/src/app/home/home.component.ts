@@ -1,17 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { CreditCardListComponent } from '../credit-card/credit-card-list/credit-card-list.component';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { creditCard } from '../credit-card/credit-card';
+import { CreditCardService } from '../credit-card/credit-card.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  public creditCards: creditCard[];
+  constructor(private creditCardService: CreditCardService) { }
   
 
   ngOnInit(): void {
+      this.creditCardService.get().subscribe((data) => this.creditCards = data);
+    
+  }
+
+  ngOnDestroy(): void {
   }
 
 }

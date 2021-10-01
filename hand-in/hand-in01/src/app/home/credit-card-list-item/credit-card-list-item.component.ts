@@ -1,14 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-export interface CreditCardDetails{
-  cardNumber: number,
-  cardHolder_name: string,
-  csc_code: number,
-  expiration_date_month: Date,
-  expiration_date_year: Date,
-  issuer: string
-}
-
+import { Component, Input, OnInit } from '@angular/core';
+import { creditCard } from 'src/app/credit-card/credit-card';
 
 @Component({
   selector: 'app-credit-card-list-item',
@@ -17,11 +8,11 @@ export interface CreditCardDetails{
 })
 export class CreditCardListItemComponent implements OnInit {
 
+  @Input() creditCard: creditCard;
+
   constructor() { }
-  
 
   ngOnInit(): void {
   }
 
-  
 }

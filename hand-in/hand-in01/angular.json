@@ -75,7 +75,8 @@
               "browserTarget": "hand-in01:build:production"
             },
             "development": {
-              "browserTarget": "hand-in01:build:development"
+              "browserTarget": "hand-in01:build:development",
+              "proxyConfig": "src/proxy.conf.json" 
             }
           },
           "defaultConfiguration": "development"
