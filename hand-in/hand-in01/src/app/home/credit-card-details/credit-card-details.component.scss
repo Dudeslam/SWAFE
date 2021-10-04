@@ -1,0 +1,115 @@
+
+* {
+  box-sizing: border-box;
+  font-family: 'Consolas', monospace;
+  font-size: 14px;
+  transform: scale(0.9);
+}
+
+/*
+ * The Card
+ *
+ * ==================== */
+.cc,
+.cc-back {
+  background: linear-gradient(to left, #22185b, #2576a5);
+  border-radius: 10px;
+  display: block;
+  height: 195px;
+  letter-spacing: .1rem;
+  text-align: left;
+  text-transform: uppercase;
+  width: 325px;
+}
+
+.chip {
+  background: #efb77f;
+  border-radius: 5px;
+  display: block;
+  height: 30px;
+  left: 30px;
+  position: absolute;
+  top: 50px;
+  width: 40px;
+}
+
+
+.cc-number {
+  background: linear-gradient(#eee, #999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  bottom: 75px;
+  font-size: 20px;
+  left: 30px;
+  position: absolute;
+}
+
+.cc-date {
+  background: linear-gradient(#eee, #999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  bottom: 40px;
+  left: 30px;
+  position: absolute;
+}
+
+.cc-date.expiry {
+  left: 125px;
+}
+.cc-date.expiry:after {
+  -webkit-text-fill-color: #22185b;
+  content: 'Expires on';
+  font-size: 12px;
+  left: -28px;
+  position: absolute;
+  text-transform: none;
+  top: -12px;
+}
+
+.cc-name {
+  background: linear-gradient(#eee, #999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  bottom: 15px;
+  left: 30px;
+  position: absolute;
+}
+
+/*
+ * Card back
+ */
+.cc-magnet {
+  background-color: #000000;
+  display: block;
+  height: 40px;
+  position: absolute;
+  top: 15%;
+  left: -17px;
+  width: 110%;
+}
+.cc-csc {
+    background-color: #c0c0c0;
+    display: block;
+    height: 30px;
+    position: absolute;
+    top: 40%;
+    left: 80px;
+    text-align: right;
+    width: 60%;
+  }
+
+.issuer{
+    font-family: "Droid Sans", Helvetica, sans-serif;
+    position: absolute;
+    
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(20, 129, 172);
+    text-transform: none;
+    top: -32px;
+    right: 30px;
+    margin: 20vh auto;
+    z-index: 2;
+}

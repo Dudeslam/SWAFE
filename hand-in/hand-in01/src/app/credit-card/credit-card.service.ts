@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { creditCard } from './credit-card';
+import { CreditCard } from '../Models/credit-card';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
@@ -8,15 +8,25 @@ import { Observable } from 'rxjs';
 })
 export class CreditCardService {
 
+  activeCreditCard: CreditCard;
+
   baseUrl = 'http://localhost:3000/credit_cards';
 
   constructor(private http: HttpClient) { }
 
-  get(): Observable<creditCard[]> {
-    return this.http.get<creditCard[]>(`${this.baseUrl}`);
+  get(): Observable<CreditCard[]> {
+    return this.http.get<CreditCard[]>(`${this.baseUrl}`);
   }
 
-  post(creditCard: creditCard) {
-    return this.http.post<creditCard>(`${this.baseUrl}`, creditCard);
+  post(creditCard: CreditCard) {
+    return this.http.post<CreditCard>(`${this.baseUrl}`, creditCard);
+  }
+
+  setActive(creditCard: CreditCard) {
+    this.activeCreditCard = creditCard;
+  }
+
+  getActive(): CreditCard {
+    return this.activeCreditCard;
   }
 }

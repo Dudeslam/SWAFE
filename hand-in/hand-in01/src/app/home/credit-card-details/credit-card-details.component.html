@@ -1,0 +1,22 @@
+
+<div class="container" fxLayoutAlign="center center">
+    <div class="cc">
+      <span class="chip"></span>
+      <span class="issuer">{{creditCard ? creditCard.issuer : "default" }}</span>
+      <span class="cc-number">{{creditCard ? cardNumber : "0123 4567 8901 2345" }}</span>
+      <span class="cc-date expiry"> {{creditCard ? creditCard.expiration_date_month : "month"}} / {{creditCard ? creditCard.expiration_date_year - 2000 : "year"}}</span>
+      <span class="cc-name">{{creditCard ? creditCard.cardholder_name : "John Doe"}}</span>
+    </div>
+    <div class="cc">
+        <span class="cc-magnet">{{creditCard ? creditCard.csc_code : "123" }}</span>
+        <span class="cc-csc">CSC: {{creditCard ? creditCard.csc_code : "123" }}</span>
+    </div>
+    <button mat-stroked-button color="warn">remove card</button>
+</div>
+
+<!--insert Transaction list here-->
+
+<h3>List of Transactions</h3>
+<div *ngFor="let transaction of transactions">
+    <p>{{transaction | json}}</p>
+</div>

@@ -3,12 +3,8 @@
 
 <tbody>
     <div class="CreditList">
-        <table mat-table [dataSource]="creditCards" class="mat-elevation-z8">
-            <div *ngFor="let creditCard of creditCards">
-                <app-credit-card-list-item [creditCard]=creditCard></app-credit-card-list-item>
-            </div>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+        <div *ngFor="let creditCard of creditCards">
+            <app-credit-card-list-item [creditCard]=creditCard></app-credit-card-list-item>
+        </div>
     </div>
 </tbody>

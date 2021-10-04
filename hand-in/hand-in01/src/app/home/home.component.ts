@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { creditCard } from '../credit-card/credit-card';
+import { CreditCard } from '../Models/credit-card';
 import { CreditCardService } from '../credit-card/credit-card.service';
 
 @Component({
@@ -11,8 +11,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   
 
-  creditCards: creditCard[];
-  displayedColumns: string[] = ['No.', 'Name', 'Issuer'];
+  creditCards: CreditCard[];
   constructor(private creditCardService: CreditCardService) { }
   
 

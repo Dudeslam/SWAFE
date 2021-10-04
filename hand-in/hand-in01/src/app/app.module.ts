@@ -4,21 +4,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 import { CreditCardListItemComponent } from './home/credit-card-list-item/credit-card-list-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatDividerModule} from '@angular/material/divider';
+import { CreditCardDetailsComponent } from './home/credit-card-details/credit-card-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CreditCardListItemComponent
+    CreditCardListItemComponent,
+    CreditCardDetailsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    MatTableModule,
-    AppRoutingModule
+    MatButtonModule,
+    AppRoutingModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
