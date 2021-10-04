@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import {MatTableModule} from '@angular/material/table';
 import { CreditCardListItemComponent } from './home/credit-card-list-item/credit-card-list-item.component';
 
 
@@ -16,6 +17,7 @@ import { CreditCardListItemComponent } from './home/credit-card-list-item/credit
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatTableModule,
     AppRoutingModule
   ],
   providers: [],

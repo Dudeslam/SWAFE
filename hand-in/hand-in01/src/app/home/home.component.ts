@@ -9,7 +9,10 @@ import { CreditCardService } from '../credit-card/credit-card.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  public creditCards: creditCard[];
+  
+
+  creditCards: creditCard[];
+  displayedColumns: string[] = ['No.', 'Name', 'Issuer'];
   constructor(private creditCardService: CreditCardService) { }
   
 
