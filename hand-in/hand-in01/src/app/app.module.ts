@@ -5,18 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CreditCardListItemComponent } from './home/credit-card-list-item/credit-card-list-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CreditCardAddComponent } from './credit-card/credit-card-add/credit-card-add.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CreditCardListItemComponent
+    CreditCardListItemComponent,
+    CreditCardAddComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

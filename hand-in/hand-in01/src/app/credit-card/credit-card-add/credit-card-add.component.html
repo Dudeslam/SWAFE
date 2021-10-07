@@ -1,1 +1,61 @@
-<p>credit-card-add works!</p>
+<div class="container">
+    <form [formGroup]="CardForm" (ngSubmit)="onSubmit()">
+        <div class="FormList">
+            <div class="col-sm-12">
+                <h2>Add credentials</h2>
+                <label for="card_number">Card Number: </label>
+                <input id="card_number" type="number" formControlName="card_number" required minlength="7" maxlength="16">
+
+                <!-- <div *ngIf="card_number.invalid">
+                    <div **ngIf="card_number.errors?.required">
+                        Card Number is required.
+                    </div>
+                    <div **ngIf="card_number.errors?.minlength">
+                        Card Number must be atleast 7 numbers long.
+                    </div>
+                    <div **ngIf="card_number.errors?.maxlength">
+                        Card Number must be can't longer than 16 numbers long.
+                    </div>
+                </div> -->
+                <label for="csc_code">CSC: </label>
+                <input id="csc_code" type="number" formControlName="csc_code" required minlength="3" maxlength="3">
+                <!-- <app-field-error-display
+                    [displayError]="isFieldValid('csc_code')"
+                    errorMsg="Please add your csc code">
+                </app-field-error-display> -->
+            </div>
+
+
+            <div class="NameRow">
+
+            
+                <label for="cardholder_name">Full Name: </label>
+                <input id="cardholder_name" type="text" formControlName="cardholder_name" required>
+                <!-- <app-field-error-display
+                    [displayError]="isFieldValid('cardholder_name')"
+                    errorMsg="Please state your name">
+                </app-field-error-display> -->
+            </div>
+
+            <div class="Expiration-date">
+
+            
+                <label for="expiration_date_month">Expiration month/year: </label>
+                <input id="expiration_date_month" type="number" formControlName="expiration_date_month" required min="01" max="12">
+                <!-- <app-field-error-display
+                    [displayError]="isFieldValid('expiration_date_month')"
+                    errorMsg="Please add the expiration month of the card">
+                </app-field-error-display> -->
+        
+                <label for="expiration_date_year"></label>
+                <input id="expiration_date_year" type="number" formControlName="expiration_date_year" required min="2020" max="2030">
+                <!-- <app-field-error-display
+                    [displayError]="isFieldValid('expiration_date_year')"
+                    errorMsg="Please add the expiration year of the card">
+                </app-field-error-display> -->
+            </div>
+
+            <button type="submit" [disabled]="!CardForm.valid">Submit</button>
+        </div>
+    </form>
+</div>
