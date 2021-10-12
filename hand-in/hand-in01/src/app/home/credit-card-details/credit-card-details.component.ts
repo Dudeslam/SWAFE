@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import {map } from 'rxjs/operators'
 import { CreditCard } from 'src/app/Models/credit-card';
 import { CreditCardService } from 'src/app/credit-card/credit-card.service';
 import { Transaction } from 'src/app/Models/transaction';
@@ -12,13 +11,15 @@ import { TransactionService } from 'src/app/transaction/transaction.service';
   templateUrl: './credit-card-details.component.html',
   styleUrls: ['./credit-card-details.component.scss']
 })
-export class CreditCardDetailsComponent implements OnInit {
+export class CreditCardDetailsComponent implements OnInit, OnDestroy {
 
   creditCard: CreditCard;
 
   transactions: Transaction[];
 
   cardNumber: string;
+
+  subscriptions: Subscription = new Subscription();
   
   constructor(
     private creditCardService: CreditCardService,
@@ -34,7 +35,15 @@ export class CreditCardDetailsComponent implements OnInit {
       const lastFour = this.creditCard.card_number.toString().substr(11,4);
       this.cardNumber = firstFour + " " + secondFour + " " + ThirdFour + " " + lastFour;
     }
-    this.transactions.
+    this.subscriptions.add(
+      this.transactionService.get().pipe(
+        map((d) => {
+          this.transactions = d.filter( x => x.credit_card.card_number === this.creditCard.card_number)
+          const i = 0;
+        })).subscribe());
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }
 

@@ -23,7 +23,7 @@ export class CreditCardListItemComponent implements OnInit {
 
   goToDetails() {
     this.creditCardService.setActive(this.creditCard);
-    this.router.navigate(['details']);
+    //this.router.navigate(['details']);
   }
 
 }

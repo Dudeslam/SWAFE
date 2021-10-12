@@ -2,9 +2,10 @@
 <h2 class="title">List of Credit Cards</h2>
 
 <tbody>
-    <div class="CreditList">
+    <div class="CreditList" *ngIf="!activeCreditcard; else detailsBlock">
         <div *ngFor="let creditCard of creditCards">
             <app-credit-card-list-item [creditCard]=creditCard></app-credit-card-list-item>
         </div>
     </div>
+    <ng-template #detailsBlock>test</ng-template>
 </tbody>

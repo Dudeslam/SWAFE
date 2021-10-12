@@ -9,7 +9,7 @@ import { CreditCardService } from '../credit-card/credit-card.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  
+  activeCreditcard: CreditCard;
 
   creditCards: CreditCard[];
   constructor(private creditCardService: CreditCardService) { }
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
       this.creditCardService.get().subscribe((data) => this.creditCards = data);
-    
+      this.activeCreditcard = this.creditCardService.activeCreditCard;
   }
 
   ngOnDestroy(): void {
