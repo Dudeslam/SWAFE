@@ -80,19 +80,23 @@ export class TransactionOverviewComponent implements OnInit {
     }).subscribe(() => this.onSuccess());
   }
 
-  onSuccess(){
+  private onSuccess(){
     this.clearForm();
     this.updateList();
   }
 
-  clearForm(){
+  private clearForm(){
     this.transactionForm.reset();
     alert("great succes");
   }
 
-  updateList(){
+  private updateList(){
     this.transactions = this.transactionService.get().pipe(map(d => {
       return d.sort((a,b) => a.credit_card.card_number - b.credit_card.card_number);
     }));
+  }
+
+  deleteTransaction(){
+    this.updateList();
   }
 }

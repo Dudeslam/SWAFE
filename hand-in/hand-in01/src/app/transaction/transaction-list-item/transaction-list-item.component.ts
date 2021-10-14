@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CreditCard } from 'src/app/Models/credit-card';
 import { Transaction } from 'src/app/Models/transaction';
 import { TransactionService } from '../transaction.service';
@@ -12,6 +12,8 @@ export class TransactionListItemComponent implements OnInit {
   
   @Input() transaction: Transaction;
 
+  @Output() deleteEvent = new EventEmitter();
+
   creditCard: CreditCard;
 
   constructor(
@@ -23,6 +25,10 @@ export class TransactionListItemComponent implements OnInit {
   }
 
   removeTransaction(){
-    this.transactionService.remove(this.transaction).subscribe();
+    this.transactionService.remove(this.transaction).subscribe(() => this.onSuccess());
+  }
+
+  onSuccess(){
+    this.deleteEvent.emit();
   }
 }

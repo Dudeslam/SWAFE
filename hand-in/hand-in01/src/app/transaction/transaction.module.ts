@@ -5,7 +5,6 @@ import { TransactionRoutingModule } from './transaction-routing.module';
 import { TransactionOverviewComponent } from './transaction-overview/transaction-overview.component';
 import { TransactionListComponent } from './transaction-list/transaction-list.component';
 import { TransactionListItemComponent } from './transaction-list-item/transaction-list-item.component';
-import { TransactionAddComponent } from './transaction-add/transaction-add.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDividerModule } from '@angular/material/divider';
@@ -27,7 +26,6 @@ import { SearchPipe } from '../pipes/search.pipe';
     TransactionOverviewComponent,
     TransactionListComponent,
     TransactionListItemComponent,
-    TransactionAddComponent,
     CardDatePipe,
     SearchPipe
   ],

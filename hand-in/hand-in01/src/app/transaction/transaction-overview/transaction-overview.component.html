@@ -4,7 +4,7 @@
         <input type="text" [(ngModel)]="searchString">
         <mat-divider></mat-divider>
         <div *ngFor="let transaction of (transactions | async) | search:searchString" class="transList">
-            <app-transaction-list-item [transaction]="transaction"></app-transaction-list-item>
+            <app-transaction-list-item [transaction]="transaction" (deleteEvent)="deleteTransaction()"></app-transaction-list-item>
         </div>
     </div>
     <mat-divider vertical></mat-divider>
