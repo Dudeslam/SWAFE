@@ -5,10 +5,14 @@
     </mat-card-header>
     <mat-card-content>
       <p>
-        Amount: {{transaction.amount}}, Currency: {{transaction.currency}}, Comment: {{transaction.comment}}, Date: {{transaction.date}}
+        Amount: {{transaction.amount}}, 
+        Currency: {{transaction.currency}}, 
+        Comment: {{transaction.comment}}, 
+        Date: {{transaction.date}},
+        Id: {{transaction.uid}}
       </p>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-raised-button>remove</button>
+      <button mat-raised-button (click)="removeTransaction()">remove</button>
     </mat-card-actions>
   </mat-card>

@@ -22,6 +22,8 @@ export class TransactionOverviewComponent implements OnInit {
 
   currencies = CURRENCIES;
 
+  searchString: string;
+
   get ListControl(): FormControl{
     return this.transactionForm.get('credit_card') as FormControl;
   }
@@ -58,12 +60,6 @@ export class TransactionOverviewComponent implements OnInit {
     this.transactionForm = this.initForm();
   }
 
-  filterByAmount(): void {
-    this.transactions = this.transactionService.get().pipe(map(d => {
-      return d.sort((a,b) => a.amount - b.amount);
-    }))
-  }
-
   private initForm(): FormGroup{
     return this.fb.group({
       credit_card: [null, Validators.required],
@@ -75,6 +71,28 @@ export class TransactionOverviewComponent implements OnInit {
   }
 
   OnSubmit(){
+    this.transactionService.post({
+      credit_card: this.ListControl.value,
+      amount: this.AmountControl.value,
+      comment: this.CommentControl.value,
+      date: (this.DateControl.value as Date).valueOf(),
+      currency: this.CurrencyControl.value,
+    }).subscribe(() => this.onSuccess());
+  }
 
+  onSuccess(){
+    this.clearForm();
+    this.updateList();
+  }
+
+  clearForm(){
+    this.transactionForm.reset();
+    alert("great succes");
+  }
+
+  updateList(){
+    this.transactions = this.transactionService.get().pipe(map(d => {
+      return d.sort((a,b) => a.credit_card.card_number - b.credit_card.card_number);
+    }));
   }
 }

@@ -23,6 +23,10 @@ export class TransactionService {
     return this.http.post<Transaction>(`${this.baseUrl}`, transaction);
   }
 
+  remove(transaction: Transaction) {
+    return this.http.delete<Transaction>(`${this.baseUrl}/${transaction.uid}`);
+  }
+
   setActive(transaction: Transaction) {
     this.activeTransaction = transaction;
   }
