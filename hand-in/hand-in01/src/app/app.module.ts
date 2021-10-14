@@ -14,13 +14,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CreditCardAddComponent } from './credit-card/credit-card-add/credit-card-add.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CreditCardListItemComponent,
+    CreditCardAddComponent,
     CreditCardDetailsComponent,
+    CreditCardListItemComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [
     MatDatepickerModule

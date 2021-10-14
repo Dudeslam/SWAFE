@@ -1,1 +1,31 @@
-<p>credit-card-add works!</p>
+<div fxLayoutAlign="center center" fxLayout="column">
+<h2>add credit card</h2>
+<form [formGroup]="creditCardForm" fxLayout="column">
+    <mat-form-field appearance="standard">
+        <mat-label>Card number</mat-label>
+        <input matInput type="number" [formControl]="numberControl">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+        <mat-label>CSC code</mat-label>
+        <input matInput type="number" min="100" max="999" [formControl]="cscCodeControl">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" [formControl]="nameControl">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Expiration date month</mat-label>
+        <input matInput type="number" max="12" min="1" [formControl]="monthControl">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Expiration date year</mat-label>
+        <input matInput type="number" max="31" min="1" [formControl]="yearControl">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Issuer</mat-label>
+        <input matInput type="text" [formControl]="issuerControl">
+    </mat-form-field>
+</form>
+
+<button mat-raised-button (click)="OnSubmit()" [disabled]="creditCardForm.invalid">Save</button>
+</div>
