@@ -19,11 +19,16 @@ const routes: Routes = [
   },
   {
     path: 'Transact',
-    component: TransactionOverviewComponent
+    loadChildren: () => import('./transaction/transaction.module').then(m => m.TransactionModule)
   },
   {
     path: 'details',
     component: CreditCardDetailsComponent
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
   }
 ];
 
