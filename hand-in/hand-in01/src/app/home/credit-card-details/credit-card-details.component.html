@@ -11,10 +11,8 @@
         <span class="cc-magnet">{{creditCard ? creditCard.csc_code : "123" }}</span>
         <span class="cc-csc">CSC: {{creditCard ? creditCard.csc_code : "123" }}</span>
     </div>
-    <button mat-stroked-button color="warn">remove card</button>
+    <button mat-stroked-button color="warn" (click)="removeCard()">remove card</button>
 </div>
-
-<!--insert Transaction list here-->
 
 <h3>List of Transactions</h3>
 <div *ngFor="let transaction of transactions">

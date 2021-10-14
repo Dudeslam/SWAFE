@@ -15,3 +15,12 @@ export const create = function(req, res) {
     message: 'Created credit card'
   })
 }
+
+export const remove = function(req, res) {
+  const params = req.params
+  CREDIT_CARD_DATA.splice(CREDIT_CARD_DATA.findIndex(x => x.card_number === +params.card_number), 1)
+  res.json({
+    date: Date.now(),
+    message: `Card ${params.card_number} deleted`
+  })
+}

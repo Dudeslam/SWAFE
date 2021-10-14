@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CreditCard } from '../Models/credit-card';
 import { CreditCardService } from '../credit-card/credit-card.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +11,13 @@ import { CreditCardService } from '../credit-card/credit-card.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  activeCreditcard: CreditCard;
+  creditCards$: Observable<CreditCard[]>;
 
-  creditCards: CreditCard[];
   constructor(private creditCardService: CreditCardService) { }
   
 
   ngOnInit(): void {
-      this.creditCardService.get().subscribe((data) => this.creditCards = data);
-      this.activeCreditcard = this.creditCardService.activeCreditCard;
+      this.creditCards$ = this.creditCardService.get();
   }
 
   ngOnDestroy(): void {

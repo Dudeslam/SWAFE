@@ -10,14 +10,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatDividerModule} from '@angular/material/divider';
 import { CreditCardDetailsComponent } from './home/credit-card-details/credit-card-details.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CreditCardListItemComponent,
-    CreditCardDetailsComponent
+    CreditCardDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,9 +29,16 @@ import { CreditCardDetailsComponent } from './home/credit-card-details/credit-ca
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    MatDividerModule
+    MatDividerModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

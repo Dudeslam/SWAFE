@@ -6,6 +6,20 @@ import { TransactionOverviewComponent } from './transaction-overview/transaction
 import { TransactionListComponent } from './transaction-list/transaction-list.component';
 import { TransactionListItemComponent } from './transaction-list-item/transaction-list-item.component';
 import { TransactionAddComponent } from './transaction-add/transaction-add.component';
+import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CardDatePipe } from '../pipes/card-date.pipe';
+import {MatCardModule} from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { SearchPipe } from '../pipes/search.pipe';
+
+
 
 
 @NgModule({
@@ -13,11 +27,24 @@ import { TransactionAddComponent } from './transaction-add/transaction-add.compo
     TransactionOverviewComponent,
     TransactionListComponent,
     TransactionListItemComponent,
-    TransactionAddComponent
+    TransactionAddComponent,
+    CardDatePipe,
+    SearchPipe
   ],
   imports: [
     CommonModule,
-    TransactionRoutingModule
+    TransactionRoutingModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatDividerModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule
   ]
 })
 export class TransactionModule { }

@@ -9,7 +9,7 @@ import { Transaction } from '../Models/transaction';
 })
 export class TransactionService {
 
-  activeTransaction: Transaction;
+  private activeTransaction: Transaction;
 
   baseUrl = 'http://localhost:3000/transactions';
 

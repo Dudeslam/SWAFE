@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CreditCardService {
 
-  activeCreditCard: CreditCard;
+  private activeCreditCard: CreditCard;
 
   baseUrl = 'http://localhost:3000/credit_cards';
 
@@ -28,5 +28,9 @@ export class CreditCardService {
 
   getActive(): CreditCard {
     return this.activeCreditCard;
+  }
+
+  remove(creditCard: CreditCard){
+    return this.http.delete<CreditCard>(`${this.baseUrl}/${creditCard.card_number}`);
   }
 }
